@@ -15,6 +15,15 @@ Using `npm.cmd` in PowerShell avoids the blocked `npm.ps1` script without changi
 
 Vite reads `.env.local` at startup. Restart the dev server after changing Firebase configuration. Do not commit `.env.local`.
 
+## Deploy to GitHub Pages
+
+GitHub Pages serves the `docs/` folder from the `main` branch. The Vite configuration builds directly into that folder and uses `/online-website/` as the site base path.
+
+1. Make sure `.env.local` contains the Firebase web app configuration.
+2. Run `npm.cmd run build` to update the published site in `docs/`.
+3. Commit and push the source and generated `docs/` changes to `main`. GitHub Pages will publish the update at <https://bijjulalikhitha.github.io/online-website/>.
+4. In Firebase Authentication, add `bijjulalikhitha.github.io` to the authorized domains.
+
 ## Deploy database rules with Firebase CLI
 
 After installing and logging in to Firebase CLI, select your project and run `firebase deploy --only database`. The CLI reads the rules path configured in `firebase.json`.
